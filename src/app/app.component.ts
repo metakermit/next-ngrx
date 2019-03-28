@@ -8,6 +8,5 @@ import source from './source';
 })
 export class AppComponent {
   title = 'next-ngrx';
-
   public sourceJson: string = source;
 }

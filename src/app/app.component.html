@@ -8,11 +8,23 @@
     </textarea>
   </div>
   <div class="flex-1 p-4">
-    <h1>{{ formTitle.en }}</h1>
-    <app-text></app-text>
-    <app-select></app-select>
-    <app-text-area></app-text-area>
-    <app-submit></app-submit>
+    <form>
+      <h1>{{ formTitle.en }}</h1>
+      <fieldset *ngFor="let fieldset of formFieldsets">
+        <legend class="text-xl font-semibold pt-4">
+          {{ fieldset.title }}
+        </legend>
+        <div *ngFor="let field of fieldset.fields" class="my-4">
+          <app-field [field]="field">
+          </app-field>
+        </div>
+      </fieldset>
+      <!-- <app-text></app-text>
+      <app-select></app-select>
+      <app-text-area></app-text-area>
+      <app-submit></app-submit> -->
+    </form>
+
   </div>
 </div>
 <router-outlet></router-outlet>

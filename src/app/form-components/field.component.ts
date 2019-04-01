@@ -16,6 +16,14 @@ import {
   TextAreaComponent
 } from '../form-components';
 
+/**
+ * A generic form field component that dynamically determines which concrete
+ * component from the ./form-components folder to generate based on the assigned
+ * field.type value. Based on the following Angular cookbook article:
+ *
+ * https://angular.io/guide/dynamic-component-loader
+ *
+ */
 @Component({
   selector: 'app-field',
   template: '<ng-container #entry></ng-container>',

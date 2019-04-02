@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Write } from './text.actions';
 
 @Component({
   selector: 'app-text',
@@ -8,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 export class TextComponent implements OnInit {
   public value: string;
 
-  constructor() { }
+  constructor(private store: Store<{ text: string }>) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  onChange() {
+    this.store.dispatch(new Write({ text: this.value }));
   }
-
 }
